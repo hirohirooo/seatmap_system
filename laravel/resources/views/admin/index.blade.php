@@ -9,7 +9,7 @@
 </head>
 <body>
 <header style="background-color: #ff7f50;">
-
+    <p>{{\Illuminate\Support\Facades\Auth::user()->email}}</p>
     <a href={{route('user.index')}} class="btn btn-danger">生徒画面はこちら</a><br>
     <a href={{route('admin.set')}} class="btn btn-danger mt-1">設定</a>
     <h1 class="text-center">【管理者用】座席表</h1>
@@ -18,7 +18,6 @@
 </header>
 <main style="background-color: #fff3e6">
 
-{{--<div class="seats @if(!is_null($users->first()) && !is_null($users->first()->created_at)) reserved @endif">--}}
     <div class="seats">
     @for($i = 1; $i <= 40; $i++)
                 @if(!is_null($users->first()) && $users->where('id', $i)->whereNotNull('updated_at')->count() > 0)
