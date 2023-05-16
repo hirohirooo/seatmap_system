@@ -27,9 +27,10 @@ class UserController extends Controller
         }
         else{
             return redirect()->back()->with('error', '指定されたユーザー');
-
         }
-
+    }
+    public function set(){
+        return view('admin.set');
     }
     public function ad_index(){
         $users = Seat::all();
@@ -38,6 +39,7 @@ class UserController extends Controller
     public function ad_edit(Request $request){
         $user = Seat::find($request['seat_id']);
         $seat = User::find($user->user_id);
+//        $seat = User::find($user->id);
         return view('admin.edit',compact('user','seat'));
     }
     public function delete(Request $request)
@@ -50,4 +52,8 @@ class UserController extends Controller
         $user->save();
         return redirect()->route('admin.index');
     }
+    public function newstudent(){
+        return view('admin.new');
+    }
+
 }

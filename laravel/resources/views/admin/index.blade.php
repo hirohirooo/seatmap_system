@@ -10,7 +10,8 @@
 <body>
 <header style="background-color: #ff7f50;">
 
-    <a href={{route('user.index')}} class="btn btn-danger" >生徒画面はこちら</a>
+    <a href={{route('user.index')}} class="btn btn-danger">生徒画面はこちら</a><br>
+    <a href={{route('admin.set')}} class="btn btn-danger mt-1">設定</a>
     <h1 class="text-center">【管理者用】座席表</h1>
 {{--    <div class="container">--}}
     <div class="clock"></div>
@@ -38,10 +39,6 @@
                     @endif
         @endfor
     </div>
-
-
-
-
 <script src="{{ asset('asset/js/index.js') }}"></script>
 </main>
 </body>
