@@ -56,4 +56,8 @@ class UserController extends Controller
         return view('admin.new');
     }
 
+    public function onlyindex(){
+        return view('only');
+    }
+
 }
