@@ -22,11 +22,14 @@ Route::post('users/{seat_id}',[UserController::class,'store'])->name('user.store
 Route::get('login',[LoginController::class,'show'])->name('login');
 Route::post('login',[LoginController::class,'login'])->name('login.post');
 
-Route::get('admin',[UserController::class,'ad_index'])->name('admin.index');
-Route::get('admin/{seat_id}',[UserController::class,'ad_edit'])->name('admin.edit.{seat_id}');
-Route::post('admin/{seat_id}',[UserController::class,'delete'])->name('delete.{seat_id}');
-Route::get('admin/edit/set',[UserController::class,'set'])->name('admin.set');
-Route::get('admin/edit/set/new',[UserController::class,'newstudent'])->name('admin.new');
-//Route::middleware('auth')->group(function(){
-//    Route::get('only/login',)
-//})
+
+Route::middleware('auth')->group(function(){
+//    Route::get('only/login',[UserController::class,'onlyindex'])->name('only.login');
+    Route::get('admin',[UserController::class,'ad_index'])->name('admin.index');
+    Route::get('admin/{seat_id}',[UserController::class,'ad_edit'])->name('admin.edit.{seat_id}');
+    Route::post('admin/{seat_id}',[UserController::class,'delete'])->name('delete.{seat_id}');
+    Route::get('admin/edit/set',[UserController::class,'set'])->name('admin.set');
+    Route::get('admin/edit/set/new',[UserController::class,'newstudent'])->name('admin.new');
+});
+
+Route::get('logout',[LoginController::class,'logout'])->name('logout');
