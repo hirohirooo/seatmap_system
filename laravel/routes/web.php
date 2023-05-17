@@ -20,6 +20,7 @@ use App\Http\Controllers\AdminController;
 Route::get('users',[UserController::class,'index'])->name('user.index');
 Route::get('users/{seat_id}',[UserController::class,'edit'])->name('user.edit.{seat_id}');
 Route::post('users/{seat_id}',[UserController::class,'store'])->name('user.store.{seat_id}');
+
 Route::get('login',[LoginController::class,'show'])->name('login');
 Route::post('login',[LoginController::class,'login'])->name('login.post');
 
@@ -30,6 +31,8 @@ Route::middleware('auth')->group(function(){
     Route::get('admin/edit/set',[AdminController::class,'set'])->name('admin.set');
     Route::get('admin/edit/set/new',[AdminController::class,'newstudent'])->name('admin.new');
     Route::post('admin/edit/set/new',[AdminController::class,'create'])->name('user.create');
+    Route::get('admin/edit/set/{user_id}',[AdminController::class,'user_edit'])->name('user.admin.edit');
+
 });
 
 Route::get('logout',[LoginController::class,'logout'])->name('logout');

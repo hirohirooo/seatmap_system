@@ -30,8 +30,8 @@ class AdminController extends Controller
     }
     public function newstudent(){
         $user = User::all();
-        $seat = Seat::all();
-        return view('admin.new',compact('user','seat'));
+//        $seat = Seat::all();
+        return view('admin.new',compact('user'));
     }
     public function set(){
         return view('admin.set');
@@ -41,5 +41,10 @@ class AdminController extends Controller
             'name' => $request['name'],
         ]);
         return redirect()->route('admin.new');
+    }
+    public function user_edit(Request $request)
+    {
+        $user = User::find($request['user_id']);
+        return view('admin.user_edit',compact('user'));
     }
 }

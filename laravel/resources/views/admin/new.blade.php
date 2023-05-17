@@ -33,7 +33,7 @@
         @foreach ($user as $users)
             <tr>
                 <td>{{ $users->id }}</td>
-                <td>{{ $users->name }}</td>
+                <td><a href="{{route('user.admin.edit',['user_id'=>$users->id])}}">{{ $users->name }}</a></td>
             </tr>
         @endforeach
         </tbody>
