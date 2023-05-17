@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function(){
     Route::post('admin/{seat_id}',[AdminController::class,'delete'])->name('delete.{seat_id}');
     Route::get('admin/edit/set',[AdminController::class,'set'])->name('admin.set');
     Route::get('admin/edit/set/new',[AdminController::class,'newstudent'])->name('admin.new');
+    Route::post('admin/edit/set/new',[AdminController::class,'create'])->name('user.create');
 });
 
 Route::get('logout',[LoginController::class,'logout'])->name('logout');

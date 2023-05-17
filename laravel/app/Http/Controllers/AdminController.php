@@ -29,9 +29,17 @@ class AdminController extends Controller
         return redirect()->route('admin.index');
     }
     public function newstudent(){
-        return view('admin.new');
+        $user = User::all();
+        $seat = Seat::all();
+        return view('admin.new',compact('user','seat'));
     }
     public function set(){
         return view('admin.set');
+    }
+    public function create(Request $request){
+        User::create([
+            'name' => $request['name'],
+        ]);
+        return redirect()->route('admin.new');
     }
 }
