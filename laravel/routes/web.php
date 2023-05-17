@@ -24,7 +24,6 @@ Route::post('login',[LoginController::class,'login'])->name('login.post');
 
 
 Route::middleware('auth')->group(function(){
-//    Route::get('only/login',[UserController::class,'onlyindex'])->name('only.login');
     Route::get('admin',[UserController::class,'ad_index'])->name('admin.index');
     Route::get('admin/{seat_id}',[UserController::class,'ad_edit'])->name('admin.edit.{seat_id}');
     Route::post('admin/{seat_id}',[UserController::class,'delete'])->name('delete.{seat_id}');
