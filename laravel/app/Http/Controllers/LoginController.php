@@ -23,10 +23,8 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->route('admin.index');
         } else {
-            // パスワードが一致しない場合の処理
-//            return redirect()->route('login');
             return back()->withErrors([
-                'email'=>'The provided credentials do not match our records.'
+                'email'=>'ログイン情報が正しくありません。'
             ]);
         }
     }

@@ -12,6 +12,11 @@
     <h1>【管理者用】新規生徒登録＆参照画面</h1>
 </header>
 <div class="container">
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <h2>新規生徒登録</h2>
     <form action="{{route('user.create')}}" method="post">
         @csrf
