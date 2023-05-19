@@ -13,10 +13,14 @@
     <h1>管理者用ログイン画面</h1>
 </header>
 <body style="background-color: #fff3e6">
-<div class="container">
+@error('email')
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror
+<div class="container-fluid">
     <form action="{{route('login.post')}}" method="post">
         @csrf
     <div class="form-group" style="max-width: 300px;">
+
         <label for="name">メールアドレス</label>
         <input id="email" name="email" type="email" class="form-control" required>
         <label for="name">パスワード</label>

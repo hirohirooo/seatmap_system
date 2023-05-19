@@ -40,7 +40,7 @@ class AdminController extends Controller
         User::create([
             'name' => $request['name'],
         ]);
-        return redirect()->route('admin.new');
+        return redirect()->route('admin.new')->with('success', '正常に登録されました。');
     }
     public function user_edit(Request $request)
     {
