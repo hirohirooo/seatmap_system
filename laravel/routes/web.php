@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 Use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,16 +20,19 @@ Use App\Http\Controllers\LoginController;
 Route::get('users',[UserController::class,'index'])->name('user.index');
 Route::get('users/{seat_id}',[UserController::class,'edit'])->name('user.edit.{seat_id}');
 Route::post('users/{seat_id}',[UserController::class,'store'])->name('user.store.{seat_id}');
+
 Route::get('login',[LoginController::class,'show'])->name('login');
 Route::post('login',[LoginController::class,'login'])->name('login.post');
 
-
 Route::middleware('auth')->group(function(){
-    Route::get('admin',[UserController::class,'ad_index'])->name('admin.index');
-    Route::get('admin/{seat_id}',[UserController::class,'ad_edit'])->name('admin.edit.{seat_id}');
-    Route::post('admin/{seat_id}',[UserController::class,'delete'])->name('delete.{seat_id}');
-    Route::get('admin/edit/set',[UserController::class,'set'])->name('admin.set');
-    Route::get('admin/edit/set/new',[UserController::class,'newstudent'])->name('admin.new');
+    Route::get('admin',[AdminController::class,'index'])->name('admin.index');
+    Route::get('admin/{seat_id}',[AdminController::class,'edit'])->name('admin.edit.{seat_id}');
+    Route::post('admin/{seat_id}',[AdminController::class,'delete'])->name('delete.{seat_id}');
+    Route::get('admin/edit/set',[AdminController::class,'set'])->name('admin.set');
+    Route::get('admin/edit/set/new',[AdminController::class,'newstudent'])->name('admin.new');
+    Route::post('admin/edit/set/new',[AdminController::class,'create'])->name('user.create');
+    Route::get('admin/edit/set/{user_id}',[AdminController::class,'user_edit'])->name('user.admin.edit');
+
 });
 
 Route::get('logout',[LoginController::class,'logout'])->name('logout');
