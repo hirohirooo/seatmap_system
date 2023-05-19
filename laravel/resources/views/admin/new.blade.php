@@ -12,6 +12,7 @@
     <h1>【管理者用】新規生徒登録＆参照画面</h1>
 </header>
 <div class="container">
+    <h2>新規生徒登録</h2>
     <form action="{{route('user.create')}}" method="post">
         @csrf
         <div class="form-group">
@@ -21,7 +22,7 @@
         </div>
         <button type="submit" class="btn btn-primary btn-sm mt-1">追加する</button>
     </form>
-
+    <h2 class="mt-1">生徒一覧</h2>
     <table class="table">
         <thead>
         <tr>

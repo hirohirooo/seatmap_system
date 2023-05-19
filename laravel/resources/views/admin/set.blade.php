@@ -12,7 +12,7 @@
     <h1>【管理者用】設定画面</h1>
 </header>
 <div class="container">
-    <a href="{{ route('admin.new') }}" class="btn btn-danger btn-sm mt-1">新規生徒登録</a>
+    <a href="{{ route('admin.new') }}" class="btn btn-danger btn-sm mt-1">生徒管理ページ</a>
     <a href="{{ route('admin.index') }}" class="btn btn-danger btn-sm mt-1">管理者画面トップに戻る</a>
 </div>
 </body>

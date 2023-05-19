@@ -8,15 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
 <header style="background-color: #ff7f50;">
     <a href="{{ route('login') }}" class="btn btn-danger">管理者用ログインページはこちら</a>
     <h1 class="text-center">座席表</h1>
     <div class="clock"></div>
 </header>
-{{--<div class="alert alert-info">--}}
-{{--    <strong><p class=" text-center">空いている座席を選択してください</p></strong>--}}
-{{--</div>--}}
+
 <main style="background-color: #fff3e6">
         <div class="seats">
             @for($i = 1; $i <= 40; $i++)
@@ -35,12 +32,10 @@
                     </a>
                 @endif
             @endfor
-
-
-
         </div>
         <script src="{{ asset('asset/js/index.js') }}"></script>
 </main>
+
 
 </body>
 
