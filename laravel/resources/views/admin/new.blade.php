@@ -23,7 +23,6 @@
         <div class="form-group">
             <label for="time">名前</label>
             <input id="name" name="name" type="text" class="form-control" required>
-
         </div>
         <button type="submit" class="btn btn-primary btn-sm mt-1">追加する</button>
     </form>
@@ -40,6 +39,16 @@
             <tr>
                 <td>{{ $users->id }}</td>
                 <td><a href="{{route('user.admin.edit',['user_id'=>$users->id])}}">{{ $users->name }}</a></td>
+
+                <td>
+                    <form action="{{route('user.admin.delete',['user_id'=>$users->id])}}" method="post">
+                    @method('delete')
+                    @csrf
+                        <button type="submit" class="btn btn-danger">
+                            削除する
+                        </button>
+                    </form>
+                </td>
             </tr>
         @endforeach
         </tbody>

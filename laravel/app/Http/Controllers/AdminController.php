@@ -47,4 +47,10 @@ class AdminController extends Controller
         $user = User::find($request['user_id']);
         return view('admin.user_edit',compact('user'));
     }
+    public function user_delete(Request $request){
+        $user = User::find($request['user_id']);
+        $user->delete();
+        return redirect()->route('admin.new')->with('success', '正常に削除されました。');
+    }
+
 }

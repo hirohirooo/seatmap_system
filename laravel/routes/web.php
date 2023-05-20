@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function(){
     Route::get('admin/edit/set/new',[AdminController::class,'newstudent'])->name('admin.new');
     Route::post('admin/edit/set/new',[AdminController::class,'create'])->name('user.create');
     Route::get('admin/edit/set/{user_id}',[AdminController::class,'user_edit'])->name('user.admin.edit');
-
+    Route::delete('admin/edit/set/{user_id}',[AdminController::class,'user_delete'])->name('user.admin.delete');
 });
 
 Route::get('logout',[LoginController::class,'logout'])->name('logout');
