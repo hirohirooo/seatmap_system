@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>設定画面</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
-</head>
 <body>
 <header style="background-color: #ff7f50;">
     <h1>【管理者用】新規生徒登録＆参照画面</h1>
@@ -44,7 +42,7 @@
                     <form action="{{route('user.admin.delete',['user_id'=>$users->id])}}" method="post">
                     @method('delete')
                     @csrf
-                        <button type="submit" class="btn btn-danger">
+                        <button type="submit" class="btn btn-danger btn-sm" ">
                             削除する
                         </button>
                     </form>

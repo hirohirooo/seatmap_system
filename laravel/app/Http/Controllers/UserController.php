@@ -17,8 +17,15 @@ class UserController extends Controller
         return view('user.edit',compact('user'));
     }
     public function store(Request $request){
+        $user = User::find($request['id']);
         $seat = Seat::find($request['seat_id']);
-        if($seat){
+        $seat_user = Seat::where('user_id', $request['id'])->first();
+//        $other_seat = $seat_user->id;
+
+        if($seat_user){
+            return redirect()->back()->with('error', '指定されたユーザーは既に登録されています。');
+        }
+        else if($user){
             $seat->user_id = $request['id'];
             $seat->content = $request['content'];
             $seat->time = $request['time'];
@@ -26,7 +33,7 @@ class UserController extends Controller
             return redirect()->route('user.index');
         }
         else{
-            return redirect()->back()->with('error', '指定されたユーザー');
+            return redirect()->back()->with('error', '指定されたユーザーは存在しません');
         }
     }
 

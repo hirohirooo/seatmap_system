@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>勉強時間登録</title>
-    <link rel="stylesheet" href="style.css">
+{{--    <link rel="stylesheet" href="style.css">--}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
 </head>
 <body>
-<header style="background-color: #ff7f50;">
-    <h1>【登録内容】{{$user->id}}番</h1>
-</header>
-<div class="container">
+<div class="container-fluid">
+    <header style="background-color: #ff7f50;">
+        <h1>【登録内容】{{$user->id}}番</h1>
+    </header>
     <form action="{{route('delete.{seat_id}',['seat_id'=>$user->id])}}" method="post">
         @csrf
         @if($user->content == "未登録")

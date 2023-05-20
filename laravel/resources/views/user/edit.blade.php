@@ -15,6 +15,9 @@
 
 </header>
 <div class="container-fluid">
+    @if(session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
     <form action="{{ route('user.store.{seat_id}', ['seat_id' => $user->id]) }}" method="post">
         @csrf
         <div class="form-group" style="max-width: 300px;">

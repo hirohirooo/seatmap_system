@@ -15,7 +15,7 @@ class SeatTableSeeder extends Seeder
     {
         for ($i=1; $i<=40; $i++) {
             DB::table('seats')->insert([
-                'user_id' => $i,
+                'user_id' => 0,
                 'content' => '未登録',
                 'time' => 0
             ]);
