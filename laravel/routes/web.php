@@ -31,9 +31,11 @@ Route::middleware('auth')->group(function(){
     Route::get('admin/edit/set',[AdminController::class,'set'])->name('admin.set');
     Route::get('admin/edit/set/new',[AdminController::class,'newstudent'])->name('admin.new');
     Route::post('admin/edit/set/new',[AdminController::class,'create'])->name('user.create');
-
     Route::get('admin/edit/set/newadmin',[AdminController::class,'ad_create'])->name('admin.create');
     Route::post('admin/edit/set/newadmin',[AdminController::class,'ad_create_post'])->name('admin.create.post');
+
+    Route::get('admin/edit/set/editadmin',[AdminController::class,'ad_change'])->name('admin.change');
+    Route::post('admin/edit/set/editadmin',[AdminController::class,'ad_change_pass'])->name('admin.change_pass');
 
 
     Route::get('admin/edit/set/{user_id}',[AdminController::class,'user_edit'])->name('user.admin.edit');

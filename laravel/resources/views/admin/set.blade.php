@@ -13,7 +13,7 @@
 </header>
 <div class="container">
     <a href="{{ route('admin.new') }}" class="btn btn-info btn-sm mt-1 col">生徒管理画面</a><br>
-    <a href="{{ route('admin.create') }}" class="btn btn-info btn-sm mt-1 col">管理者追加画面</a><br>
+    <a href="{{ route('admin.create') }}" class="btn btn-info btn-sm mt-1 col">管理者管理画面</a><br>
     <a href="{{ route('admin.index') }}" class="btn btn-danger btn-sm mt-1 col">管理者画面トップに戻る</a>
 </div>
 </body>

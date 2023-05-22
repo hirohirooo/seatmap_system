@@ -42,7 +42,7 @@
                     <form action="{{route('user.admin.delete',['user_id'=>$users->id])}}" method="post">
                     @method('delete')
                     @csrf
-                        <button type="submit" class="btn btn-danger btn-sm" ">
+                        <button type="submit" class="btn btn-danger btn-sm">
                             削除する
                         </button>
                     </form>
