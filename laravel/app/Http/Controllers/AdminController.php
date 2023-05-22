@@ -17,7 +17,6 @@ class AdminController extends Controller
     public function edit(Request $request){
         $user = Seat::find($request['seat_id']);
         $seat = User::find($user->user_id);
-//        $seat = User::find($user->id);
         return view('admin.edit',compact('user','seat'));
     }
     public function delete(Request $request)
@@ -58,9 +57,19 @@ class AdminController extends Controller
     }
 
     public function ad_create_post(Request $request){
+        $data = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+        ], [
+            'email.required' => 'メールアドレスを入力してください',
+            'email.email' => '正しいメールアドレスの形式で入力してください',
+            'password.required' => 'パスワードを入力してください',
+            'password.min' => 'パスワードは8文字以上で入力してください',
+        ]);
+
         Auth::create([
-            'email' => $request['email'],
-            'password' =>Hash::make($request['password']),
+            'email' => $data['email'],
+            'password' =>Hash::make($data['password']),
         ]);
         return redirect()->route('admin.create')->with('success', '正常に登録されました。');
     }
