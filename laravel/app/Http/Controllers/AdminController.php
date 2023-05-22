@@ -85,5 +85,7 @@ class AdminController extends Controller
         $admin->save();
         return redirect()->route('admin.change')->with('success', '正常に変更されました。');
     }
-
+    public function list(){
+        return view('admin.list');
+    }
 }

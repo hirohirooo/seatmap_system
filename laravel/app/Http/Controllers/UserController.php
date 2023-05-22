@@ -20,8 +20,6 @@ class UserController extends Controller
         $user = User::find($request['id']);
         $seat = Seat::find($request['seat_id']);
         $seat_user = Seat::where('user_id', $request['id'])->first();
-//        $other_seat = $seat_user->id;
-
         if($seat_user){
             return redirect()->back()->with('error', '指定されたユーザーは既に登録されています。');
         }

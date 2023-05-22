@@ -14,7 +14,8 @@
         <header style="background-color: #ff7f50;">
             <p>ようこそ{{\Illuminate\Support\Facades\Auth::user()->email}}さん</p>
             <a href="{{route('logout')}}" class="btn btn-danger btn-sm pt-0">ログアウト</a><br>
-            <a href="{{route('admin.set')}}" class="btn btn-danger mt-1 btn-sm">設定</a>
+            <a href="{{route('admin.set')}}" class="btn btn-info mt-1 btn-sm">設定</a>
+            <a href="{{route('user.list.show')}}" class="btn btn-info mt-1 btn-sm">印刷用画面はこちら</a>
             <div class="row">
                 <div class="col">
                     <h1 class="text-center">【管理者用】座席表</h1>
