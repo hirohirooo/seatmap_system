@@ -55,23 +55,35 @@ class AdminController extends Controller
     public function ad_create(){
         return view('admin.create');
     }
-
     public function ad_create_post(Request $request){
-        $data = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:8',
-        ], [
-            'email.required' => 'メールアドレスを入力してください',
-            'email.email' => '正しいメールアドレスの形式で入力してください',
-            'password.required' => 'パスワードを入力してください',
-            'password.min' => 'パスワードは8文字以上で入力してください',
-        ]);
-
-        Auth::create([
-            'email' => $data['email'],
-            'password' =>Hash::make($data['password']),
-        ]);
-        return redirect()->route('admin.create')->with('success', '正常に登録されました。');
+        $admin = Auth::where('email', $request['email'])->first();
+        if($admin) {
+            return redirect()->back()->with('error', '指定されたユーザーは既に登録されています。');
+        }else{
+            $data = $request->validate([
+                'email' => 'required|email',
+                'password' => 'required|min:8',
+            ], [
+                'email.required' => 'メールアドレスを入力してください',
+                'email.email' => '正しいメールアドレスの形式で入力してください',
+                'password.required' => 'パスワードを入力してください',
+                'password.min' => 'パスワードは8文字以上で入力してください',
+            ]);
+            Auth::create([
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]);
+            return redirect()->route('admin.create')->with('success', '正常に登録されました。');
+        }
+    }
+    public function ad_change(){
+        return view('admin.change');
+    }
+    public function ad_change_pass(Request $request){
+        $admin = Auth::where('email', $request['email'])->first();
+        $admin->password = Hash::make($request['password']);
+        $admin->save();
+        return redirect()->route('admin.change')->with('success', '正常に変更されました。');
     }
 
 }
