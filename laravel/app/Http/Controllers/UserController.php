@@ -36,11 +36,4 @@ class UserController extends Controller
             return redirect()->back()->with('error', '指定されたユーザーは存在しません');
         }
     }
-
-
-
-
-
-
-
 }

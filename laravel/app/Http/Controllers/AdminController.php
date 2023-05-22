@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Seat;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -30,7 +32,6 @@ class AdminController extends Controller
     }
     public function newstudent(){
         $user = User::all();
-//        $seat = Seat::all();
         return view('admin.new',compact('user'));
     }
     public function set(){
@@ -51,6 +52,17 @@ class AdminController extends Controller
         $user = User::find($request['user_id']);
         $user->delete();
         return redirect()->route('admin.new')->with('success', '正常に削除されました。');
+    }
+    public function ad_create(){
+        return view('admin.create');
+    }
+
+    public function ad_create_post(Request $request){
+        Auth::create([
+            'email' => $request['email'],
+            'password' =>Hash::make($request['password']),
+        ]);
+        return redirect()->route('admin.create')->with('success', '正常に登録されました。');
     }
 
 }
