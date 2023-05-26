@@ -17,14 +17,15 @@ use App\Http\Controllers\AdminController;
 */
 
 
-Route::get('users',[UserController::class,'index'])->name('user.index');
-Route::get('users/{seat_id}',[UserController::class,'edit'])->name('user.edit.{seat_id}');
-Route::post('users/{seat_id}',[UserController::class,'store'])->name('user.store.{seat_id}');
+
 
 Route::get('login',[LoginController::class,'show'])->name('login');
 Route::post('login',[LoginController::class,'login'])->name('login.post');
 
 Route::middleware('auth')->group(function(){
+    Route::get('users',[UserController::class,'index'])->name('user.index');
+    Route::get('users/{seat_id}',[UserController::class,'edit'])->name('user.edit.{seat_id}');
+    Route::post('users/{seat_id}',[UserController::class,'store'])->name('user.store.{seat_id}');
     Route::get('admin',[AdminController::class,'index'])->name('admin.index');
     Route::get('admin/{seat_id}',[AdminController::class,'edit'])->name('admin.edit.{seat_id}');
     Route::post('admin/{seat_id}',[AdminController::class,'delete'])->name('delete.{seat_id}');

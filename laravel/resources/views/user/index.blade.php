@@ -10,8 +10,9 @@
 
 <div class="container-fluid">
     <div class="row">
-    <header style="background-color: #ff7f50;">
-        <a href="{{ route('login') }}" class="btn btn-secondary btn-sm">管理者用ログインページ</a>
+        <header style="background-color: #ff7f50;">
+            <a href="{{route('logout')}}" class="btn btn-danger btn-sm pt-0 mt-1">ログアウト</a><br>
+            <a href="{{ route('login') }}" class="btn btn-secondary btn-sm mt-1">管理者用ログインページ</a>
         <div class="row">
             <div class="col">
                 <h1 class="text-center">座席表</h1>
