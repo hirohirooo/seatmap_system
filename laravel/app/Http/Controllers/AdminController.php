@@ -26,6 +26,7 @@ class AdminController extends Controller
         $user->user->name = "未登録";
         $user->time = 0;
         $user->content = "未登録";
+        $user->user_id = "0";
         $user->save();
         return redirect()->route('admin.index');
     }
